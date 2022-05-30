@@ -1,10 +1,13 @@
 <template>
-    <router-view></router-view>
+  <h1>OrderList</h1>
 </template>
 
 <script>
-
 export default {
-    name: 'App',
+    name: 'OrderList'
 }
 </script>
+
+<style>
+
+</style>
