@@ -33,8 +33,7 @@ export default {
 
 aside {
     background-color: $white;
-    font-size: 15px;
-    color: $aside-color;     
+    font-size: 15px;    
 }
 .aside-header {  
     box-shadow: $aside-header-shadow; 
