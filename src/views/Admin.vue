@@ -1,12 +1,12 @@
 <template>
-    <div class="wrapper">
+    <div class="app-wrapper">
         <aside-panel class="aside-panel"/>
-        <div class="base">
-            <app-header class="header"/>
-            <main>
+        <div class="app-base">
+            <app-header class="app-header"/>
+            <main class="app-main">
                 <router-view></router-view>
             </main>
-            <app-footer class="footer"/>
+            <app-footer class="app-footer"/>
         </div>
     </div>
 </template>
@@ -28,7 +28,7 @@ export default {
 
 <style lang="scss">
 
-.wrapper {
+.app-wrapper {
     min-height: 100vh;
     display: flex;
     @media (max-width: $mobile-max) {
@@ -47,22 +47,22 @@ export default {
         width: 100%;       
     } 
 }
-.base {  
+.app-base {  
     flex: 1 0 auto;
     display: flex;    
     flex-direction: column;
 }
-.header {     
+.app-header {     
     flex: 0 0 68px;
     z-index: 1;
     box-shadow: $header-shadow;    
 }
-main {
+.app-main {
     background-color: $bg-admin;     
     flex: 1 0 auto;
-    padding: 28px;    
+    padding: 28px 25px 28px 32px;    
 }
-.footer {  
+.app-footer {  
     text-align: center;
     flex: 0 0 68px;
     z-index: 1;

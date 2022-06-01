@@ -23,7 +23,9 @@
                 </form>
                 <footer class="modal-footer">
                     <a href="#" class="request-link">Запросить доступ</a>
-                    <input type="button" class="button" value="Вход">
+                    <input type="button" class="button" value="Вход"
+                    @click.prevent="$router.push('/admin/order-list')"
+                    >
                 </footer>
             </div>
         </div>
@@ -106,7 +108,7 @@ export default {
         color: $base-color;
         padding: 0 11px;
         &:focus {
-            outline: 1.5px solid $footer-link;
+            outline: 0.5px solid $footer-link;
         }
     }    
 }
