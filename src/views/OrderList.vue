@@ -14,6 +14,7 @@
     </header>
     <main class="main">
         <order-item />
+        <order-item />
     </main>
     <footer class="footer">
         Пагинация
@@ -72,10 +73,14 @@ input {
     background-repeat: no-repeat;  
     background-position: 93%;
 }
+.button-group {
+    display: flex;  
+    align-items: center; 
+}
 .button {
+    line-height: 29px;
     width: 110px;
     height: 29px;
-    border: none;
     border-radius: 4px;
     background-color: $footer-link;
     font-size: 12px;
