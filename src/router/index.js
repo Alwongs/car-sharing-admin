@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Login from '@/views/Login.vue'
 import Admin from '@/views/Admin.vue'
 import OrderList from '@/views/OrderList.vue'
+import Error from '@/views/Error.vue'
 
 const routes = [
   {
@@ -18,7 +19,12 @@ const routes = [
             path: 'order-list',
             name: 'order-list',
             component: OrderList  
-        }      
+        },      
+        {
+            path: 'error',
+            name: 'error',
+            component: Error  
+        },      
     ]
   },
 ]

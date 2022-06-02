@@ -1,25 +1,26 @@
 <template>
-  <h2 class="title">Заказы</h2>
-  <div class="card">
-    <header class="header">
-        <div class="input-group">
-            <input type="text">
-            <input type="text">
-            <input type="text">
-            <input type="text">
-        </div>
-        <div class="button-group">
-            <button class="button">Применить</button>
-        </div>
-    </header>
-    <main class="main">
-        <order-item />
-        <order-item />
-    </main>
-    <footer class="footer">
-        Пагинация
-    </footer>
-  </div>
+    <h2 class="title">Заказы</h2>
+    <div class="card">
+        <header class="header">
+            <div class="input-group">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+            </div>
+            <div class="button-group">
+                <button class="button">Применить</button>
+            </div>
+        </header>
+        <main class="main">
+            <order-item />
+            <order-item />
+            <order-item />
+        </main>
+        <footer class="footer">
+            Пагинация
+        </footer>
+    </div>
 </template>
 
 <script>
@@ -78,9 +79,9 @@ input {
     align-items: center; 
 }
 .button {
-    line-height: 29px;
     width: 110px;
     height: 29px;
+    line-height: 29px;
     border-radius: 4px;
     background-color: $footer-link;
     font-size: 12px;
