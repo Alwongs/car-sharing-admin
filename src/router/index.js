@@ -14,6 +14,9 @@ const routes = [
     path: '/admin',
     name: 'admin',
     component: Admin,
+    meta: { 
+        needAuth: true 
+    },    
     children: [
         {
             path: 'order-list',
@@ -33,5 +36,15 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+
+router.beforeEach((to, from, next) => {
+    const isLoggedIn = localStorage.getItem("user");
+    
+    if (to.matched.some((record) => record.meta.needAuth) && !isLoggedIn) {
+      next("/");
+    } else {
+      next();
+    }
+  });
 
 export default router

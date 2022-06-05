@@ -11,21 +11,31 @@
             </div>
             <div class="modal">
                 <h3 class="modal-title">Вход</h3>
-                <form action="#">
-                    <div class="form-item">
-                        <label for="email">Почта</label>
-                        <input type="text" id="email">
-                    </div>
-                    <div class="form-item">
-                        <label for="password">Пароль</label>
-                        <input type="password" id="password">
-                    </div>
-                </form>
-                <footer class="modal-footer">
-                    <a href="#" class="request-link">Запросить доступ</a>
-                    <input type="button" class="button" value="Вход"
-                    @click.prevent="$router.push('/admin/order-list')"
+
+                <div class="input-block">
+                    <label for="email">
+                        Почта
+                    </label>
+                    <input 
+                        v-model="login" 
+                        type="text" 
+                        id="email"
                     >
+                </div>
+
+                <div class="input-block">
+                    <label for="password">
+                        Пароль
+                    </label>
+                    <input 
+                        v-model="password" 
+                        type="password" 
+                        id="password"
+                    >
+                </div>
+                <footer class="modal-footer">
+                    <a href="/admin/order-list" class="request-link">Запросить доступ</a>
+                    <input type="button" class="button" value="Вход" @click.prevent="loginHandler">
                 </footer>
             </div>
         </div>
@@ -35,7 +45,26 @@
 <script>
 
 export default {
-    name: 'Login'
+    name: 'Login',
+    data() {
+        return {
+            login: '',
+            password: ''
+        }
+    },
+    methods: {
+        async loginHandler() {
+            try {
+                await this.$store.dispatch("onLogin", {
+                    username: this.login,
+                    password: this.password,                    
+                });
+                this.$router.push({ name: 'order-list'})
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    }
 }
 </script>
 
@@ -91,7 +120,7 @@ export default {
    margin-bottom: 16px;
 }
 
-.form-item {
+.input-block {
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;

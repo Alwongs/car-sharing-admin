@@ -13,9 +13,14 @@
             </div>
         </header>
         <main class="main">
-            <order-item />
-            <order-item />
-            <order-item />
+            <ul>
+                <li 
+                    v-for="order in orders" 
+                    :key="order.id"
+                >
+                    <order-item />
+                </li>
+            </ul>
         </main>
         <footer class="footer">
             Пагинация
@@ -24,11 +29,20 @@
 </template>
 
 <script>
-import OrderItem from '@/components/OrderItem.vue'
+import { mapGetters } from 'vuex';
+import OrderItem from '@/components/OrderItem.vue';
 
 export default {
     name: 'OrderList',
-    components: { OrderItem }
+    components: { OrderItem },
+    computed: {
+        ...mapGetters([
+            'orders'
+        ])
+    },
+    mounted() {
+        this.$store.dispatch('get_orders_from_api')
+    }
 }
 </script>
 
@@ -45,11 +59,12 @@ export default {
     background-color: $white;
     border-radius: 9px;
     width: 100%;
-    height: 386px;
+    min-height: 350px;
+    max-height: 65vh;
     box-shadow: $card-shadow;
 }
 .header {
-    flex: 0 0 60px;
+    flex: 0 0 60px; 
     display: flex;
     justify-content: space-between;
     line-height: 60px;
@@ -91,6 +106,7 @@ input {
 .main {
     flex: 1 1 auto;
     padding: 14px 22px;
+    overflow-y: scroll;    
 }
 
 .footer {
