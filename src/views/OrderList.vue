@@ -18,7 +18,15 @@
                     v-for="order in orders" 
                     :key="order.id"
                 >
-                    <order-item />
+                    <order-item 
+                        :img="order.carId.thumbnail.path"
+                        :model="order.carId.name"
+                        :city="order.cityId.name"
+                        :point="order.pointId.name"
+                        :dateFrom="order.dateFrom"
+                        :dateTo="order.dateTo"
+                        :color="order.color"
+                    />
                 </li>
             </ul>
         </main>
@@ -58,7 +66,7 @@ export default {
     flex-direction: column;
     background-color: $white;
     border-radius: 9px;
-    width: 100%;
+    max-width: 100%;
     min-height: 350px;
     max-height: 65vh;
     box-shadow: $card-shadow;

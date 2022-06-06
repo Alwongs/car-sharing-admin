@@ -48,8 +48,8 @@ export default {
     name: 'Login',
     data() {
         return {
-            login: '',
-            password: ''
+            login: 'intern ',
+            password: 'intern-S!'
         }
     },
     methods: {

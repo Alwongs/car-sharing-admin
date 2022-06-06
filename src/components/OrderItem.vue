@@ -1,12 +1,15 @@
 <template>
     <div class="item">
         <div class="image">
-            <img :src="require('../assets/img/jpg/car.jpg')" alt="">
+            <img 
+                :src="img" 
+                alt="car-photo"
+            >
         </div>
         <div class="info">
-            <p>ELANTRA в Ульяновск, Нариманова 42</p>
-            <p>12.06.2019 12:00 - 13.06.2019</p>
-            <p>Цвет: Голубой</p>
+            <p>{{ model }} в {{ city }}, {{ point }}</p>
+            <p>{{ dateFrom }} - {{ dateTo }}</p>
+            <p>Цвет: {{ color }}</p>
         </div>
         <div class="extra-services">
             <ul>         
@@ -40,7 +43,16 @@
 <script>
 export default {
 
-name: 'OrderItem'
+    name: 'OrderItem',
+    props: [ 
+        'model', 
+        'city', 
+        'point', 
+        'dateFrom', 
+        'dateTo',
+        'color',
+        'img',
+    ],
 }
 </script>
 
@@ -52,18 +64,26 @@ name: 'OrderItem'
     margin-bottom: 16px;
 }
 .image {
-    flex: 1 0 auto;
+    flex: 0 0 170px;
+    height: 95px;
     img {
-        height: 64px;
+        width: 138px;
+        max-height: 95px;
     }
 }
 .info {
-    flex: 1 0 auto;
+    flex: 1 0 248px;
+    font-size: 13px;
+    margin-right: 16px;
 }
 .extra-services {
+    border: 1px solid red;    
     flex: 1 0 auto;
     :not(:last-child) {
         margin-bottom: 7px;
+    }
+    li {
+        max-width: fit-content;
     }
     .service {
         display: flex;
@@ -86,16 +106,19 @@ name: 'OrderItem'
             }
             label {
                 color: #121212;
-                font-size: 12px;
+                font-size: 10px;
             }        
         }
     }    
 }
 
 .price {
+    border: 1px solid red;
     flex: 1 0 auto;
+    font-size: 24px;
 }
 .button-group {
+    border: 1px solid red;    
     flex: 0 0 auto;  
     .btn {
         background-color: $white;
