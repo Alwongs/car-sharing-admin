@@ -62,6 +62,16 @@ export default {
     display: flex;
     align-items: center;
     margin-bottom: 16px;
+            flex-wrap: wrap;
+    @media (min-width: $desktop-min) and (max-width: $desktop-max) {
+        flex-wrap: wrap;
+    }
+    @media (min-width: $tablet-min) and (max-width: $tablet-max) {
+
+    }
+    @media (max-width: $mobile-max) {
+
+    }
 }
 .image {
     flex: 0 0 170px;
@@ -70,14 +80,19 @@ export default {
         width: 138px;
         max-height: 95px;
     }
+    @media (min-width: $desktop-min) and (max-width: $desktop-max) {
+        flex-wrap: none;
+    }    
 }
 .info {
     flex: 1 0 248px;
     font-size: 13px;
     margin-right: 16px;
+    @media (min-width: $desktop-min) and (max-width: $desktop-max) {
+        flex-wrap: none;
+    }     
 }
-.extra-services {
-    border: 1px solid red;    
+.extra-services {  
     flex: 1 0 auto;
     :not(:last-child) {
         margin-bottom: 7px;
@@ -110,15 +125,19 @@ export default {
             }        
         }
     }    
+    @media (min-width: $desktop-min) and (max-width: $desktop-max) {
+        flex-wrap: none;
+    }     
 }
 
 .price {
-    border: 1px solid red;
     flex: 1 0 auto;
     font-size: 24px;
+    @media (min-width: $desktop-min) and (max-width: $desktop-max) {
+        flex-wrap: none;
+    }     
 }
-.button-group {
-    border: 1px solid red;    
+.button-group {  
     flex: 0 0 auto;  
     .btn {
         background-color: $white;
@@ -152,7 +171,10 @@ export default {
             background-position: 5%; 
             padding-left: 10px;       
         }
-    }      
+    } 
+    @media (min-width: $desktop-min) and (max-width: $desktop-max) {
+        flex-wrap: none;
+    }          
 }
 
 

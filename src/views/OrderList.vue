@@ -19,10 +19,10 @@
                     :key="order.id"
                 >
                     <order-item 
-                        :img="order.carId.thumbnail.path"
-                        :model="order.carId.name"
-                        :city="order.cityId.name"
-                        :point="order.pointId.name"
+                        :img="order.carId ? order.carId.thumbnail.path : 'no car'"
+                        :model="order.carId ? order.carId.name : 'no car'"
+                        :city="order.cityId ? order.cityId.name : 'Россия'"
+                        :point="order.pointId ? order.pointId.name : ''"
                         :dateFrom="order.dateFrom"
                         :dateTo="order.dateTo"
                         :color="order.color"
